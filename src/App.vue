@@ -1,20 +1,23 @@
 <script setup>
-import JSConfetti from 'js-confetti'
-import webCards from './components/webCards.vue'
+import { ref } from 'vue'
 
-const confetti = new JSConfetti()
+const awesome = ref(true)
 
-function showConfetti() {
-  confetti.addConfetti({
-    emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
-    emojiSize: 50,
-    confettiNumber: 6
-  })
+function toggle() {
+  awesome.value = !awesome.value
 }
 </script>
 
 <template>
-  <webCards @click="showConfetti"> hello world! </webCards>
+  <h1>Hello World!</h1>
+  <p>mnoss personal site</p>
+  <nav role="group">
+    <RouterLink to="/" role="button" v-if="awesome" disabled>Home </RouterLink>
+    <RouterLink to="/" role="button" @click="toggle" v-else>Home </RouterLink>
+    <RouterLink to="/about" role="button" @click="toggle" v-if="awesome">About Me</RouterLink>
+    <RouterLink to="/about" role="button" v-else disabled>About Me</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
-
-<style></style>
