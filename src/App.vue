@@ -1,20 +1,11 @@
-<script setup>
-import JSConfetti from 'js-confetti'
-import webCards from './components/webCards.vue'
-
-const confetti = new JSConfetti()
-
-function showConfetti() {
-  confetti.addConfetti({
-    emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸'],
-    emojiSize: 50,
-    confettiNumber: 6
-  })
-}
-</script>
-
 <template>
-  <webCards @click="showConfetti"> hello world! </webCards>
+  <h1>Hello App!</h1>
+  <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+  <nav role="group">
+    <RouterLink to="/"><button>to Home</button> </RouterLink>
+    <RouterLink to="/about"><button>Go to About</button></RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
-
-<style></style>
