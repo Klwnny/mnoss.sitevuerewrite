@@ -33,6 +33,10 @@ import CardView from './CardView.vue'
           </tbody>
         </table>
       </template>
+      <template #footer>
+        made with <a href="https://picocss.com/" target="_blank">@PicoCSS</a> &
+        <a href="https://vuejs.org/" target="_blank">@VueJS</a>
+      </template>
     </CardView>
   </div>
 </template>

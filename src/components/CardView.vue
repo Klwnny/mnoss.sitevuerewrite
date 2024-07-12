@@ -7,7 +7,7 @@
       <slot name="body"></slot>
     </p>
     <footer>
-      <span name="footer"></span>
+      <slot name="footer"></slot>
     </footer>
   </article>
 </template>

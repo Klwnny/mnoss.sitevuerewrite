@@ -1,23 +1,29 @@
-<script setup>
-import { ref } from 'vue'
-
-const awesome = ref(true)
-
-function toggle() {
-  awesome.value = !awesome.value
+<script>
+export default {
+  methods: {
+    goToAbout() {
+      this.$router.push('/')
+    }
+  }
 }
 </script>
-
 <template>
-  <h1>Hello World!</h1>
+  <h1 @click="goToAbout" id="h1z1">Hello World!</h1>
   <p>mnoss personal site</p>
   <nav role="group">
-    <RouterLink to="/" role="button" v-if="awesome" disabled>Home </RouterLink>
-    <RouterLink to="/" role="button" @click="toggle" v-else>Home </RouterLink>
-    <RouterLink to="/about" role="button" @click="toggle" v-if="awesome">About Me</RouterLink>
-    <RouterLink to="/about" role="button" v-else disabled>About Me</RouterLink>
+    <RouterLink to="/" role="button">Home </RouterLink>
+    <RouterLink to="/about" role="button">About Me</RouterLink>
+    <RouterLink to="/resume" role="button">Resume</RouterLink>
+    <RouterLink to="/" role="button" disabled>Index</RouterLink>
+    <RouterLink to="/" role="button" disabled>Blog</RouterLink>
   </nav>
   <main>
     <RouterView />
   </main>
 </template>
+
+<style>
+#h1z1 {
+  cursor: pointer;
+}
+</style>
