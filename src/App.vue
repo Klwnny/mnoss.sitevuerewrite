@@ -1,9 +1,21 @@
+<script setup>
+import { ref } from 'vue'
+
+const awesome = ref(true)
+
+function toggle() {
+  awesome.value = !awesome.value
+}
+</script>
+
 <template>
-  <h1>Hello App!</h1>
-  <p><strong>Current route path:</strong> {{ $route.fullPath }}</p>
+  <h1>Hello World!</h1>
+  <p>mnoss personal site</p>
   <nav role="group">
-    <RouterLink to="/"><button>to Home</button> </RouterLink>
-    <RouterLink to="/about"><button>Go to About</button></RouterLink>
+    <RouterLink to="/" role="button" v-if="awesome" disabled>Home </RouterLink>
+    <RouterLink to="/" role="button" @click="toggle" v-else>Home </RouterLink>
+    <RouterLink to="/about" role="button" @click="toggle" v-if="awesome">About Me</RouterLink>
+    <RouterLink to="/about" role="button" v-else disabled>About Me</RouterLink>
   </nav>
   <main>
     <RouterView />
