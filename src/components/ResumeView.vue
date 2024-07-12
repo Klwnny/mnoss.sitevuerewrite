@@ -3,7 +3,7 @@
 <template>
   <h2>Resume</h2>
   <div>
-    <iframe src="https://mnoss.site/Resume.pdf" width="800" height="600"></iframe>
+    <iframe src="../Resume.pdf" width="800" height="600"></iframe>
   </div>
 </template>
 
